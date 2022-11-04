@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
+
+import Home from './Home';
+import ChatRoom from './ChatRoom.';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Route path='/' component={App}>
+        <Switch>
+          <Route path='/home' component={Home} />
+          <Route path='/home/:id' component={ChatRoom} />
+          <Redirect from="/" to="/home" />
+        </Switch>
+      </Route>
+    </Router>
   </React.StrictMode>
 );
 

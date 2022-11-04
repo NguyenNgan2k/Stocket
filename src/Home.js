@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 function Home() {
-    const [id, setId] = useState('1');
+    const [id, setId] = useState(1);
     const history = useHistory();
     const _handleClick = () => {
-        history.push(`/${id}`)
+        // history.push(`/${id}`)
     }
     return (
         <>
@@ -13,7 +13,7 @@ function Home() {
             >
             </input>
             <Link
-                to={`/${1}`}
+                to={`/home/${1}`}
                 onClick={_handleClick}
             >Join</Link>
         </>
